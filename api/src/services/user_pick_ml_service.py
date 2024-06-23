@@ -323,6 +323,7 @@ class UserPickMLService:
         ph = PurchaseHistory(self.user_pick, voc, contracts)
 
         ph.get_purchases(include_rk=True, include_kpgz=True)
+        ph.generate_features()
         ph.drop_cancelled()
 
         return ph.check_regular_purchase()
